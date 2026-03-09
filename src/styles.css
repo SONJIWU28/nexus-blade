@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  background: #05060d;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #05060d;
+}
+
+body {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+canvas {
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ══════════════════════════════
+   ANIMATED GRADIENT SHIFT
+   ══════════════════════════════ */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ══════════════════════════════
+   XP BAR SHIMMER
+   ══════════════════════════════ */
+.menu-xp-shimmer {
+  animation: gradientShift 2s ease infinite;
+  background-size: 200% 100% !important;
+}
+
+/* ══════════════════════════════
+   TITLE GLOW PULSE
+   ══════════════════════════════ */
+.menu-title-glow {
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.25)); }
+  50% { filter: drop-shadow(0 0 45px rgba(224, 64, 251, 0.35)); }
+}
+
+/* ══════════════════════════════
+   PANEL FADE IN
+   ══════════════════════════════ */
+.menu-panel {
+  animation: panelFadeIn 0.6s ease-out;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ══════════════════════════════
+   START BUTTON GLOW PULSE
+   ══════════════════════════════ */
+.menu-start-btn {
+  animation: gradientShift 3s ease infinite, btnGlow 2s ease-in-out infinite;
+}
+
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.15), 0 4px 15px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(124, 77, 255, 0.25), 0 4px 20px rgba(0, 0, 0, 0.3); }
+}
+
+/* ══════════════════════════════
+   PULSE ANIMATION FOR HINTS
+   ══════════════════════════════ */
+@keyframes pulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.25; }
+}
